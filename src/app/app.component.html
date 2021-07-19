@@ -1,0 +1,67 @@
+<router-outlet></router-outlet>
+
+<!--<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title> Tutorial </title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
+</head>-->
+
+<section>
+  <h1> Add Items</h1>
+  <label> Select a product type </label>
+  <select [(ngModel)]="newProductType"  id="selProductType">
+    <option selected=""> --Select-- </option>
+    <option> PRODUCT1 </option>
+    <option> PRODUCT2 </option>
+    <option> PRODUCT3 </option>
+  </select>
+
+  <label> Items Received </label>
+  <input [(ngModel)]="newProductQuantity" type="textbox" id="txtQuantity" placeholder="1">
+
+  <label> Price Per Item Received </label>
+  <input [(ngModel)]="newProductPrice" type="textbox" id="txtPrice" placeholder="0.00">
+
+  <button id="btnSave" (click)="saveToList()"> Add Stock </button>
+</section>
+
+<section>
+  <h1> Remove Stock </h1>
+  <label> Select product type </label>
+  <select [(ngModel)]="buyerProductType" id="selBuyerProductType">
+    <option selected=""> --Select-- </option>
+    <option> PRODUCT1 </option>
+    <option> PRODUCT2 </option>
+    <option> PRODUCT3 </option>
+  </select>
+
+  <label> Buyers email address</label>
+  <input [(ngModel)]="buyerEmail" type="textbox" id="txtEmail" placeholder="john@john.com">
+
+  <label> Quantity </label>
+  <input [(ngModel)]="buyerQuantity" type="textbox" placeholder="0" id="txtItemsBought">
+
+  <button id="btnBuy" (click)="buyItems()"> Sell Stock</button>
+</section>
+
+<section class="displaySection">
+
+  <h1> Stock Levels </h1>
+
+  <table id="tblListProducts">
+    <thead>
+      <td> Product Type </td>
+      <td> Quantity </td>
+      <td> Price per Item </td>
+    </thead>
+
+    <tr *ngFor="let item of listOfProducts">
+      <td>{{item.productType}}</td>
+      <td>{{item.productQuantity}}</td>
+      <td>{{item.productPrice}}</td>
+    </tr>
+  </table>
+</section>
+<script type="text/javascript" src="tutorial.js"></script>
